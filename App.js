@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, ScrollView, View, Modal, Button, TextInput, Image } from 'react-native';
 
-import Plate from './Plate'
+import Plate from './components/Plate'
 
 export default class App extends React.Component {
   state = {
