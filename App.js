@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, ScrollView, View, Modal, Button, TextInput, Image } from 'react-native';
 
 import Plate from './components/Plate'
+import Settings from './components/Settings'
 
 export default class App extends React.Component {
   state = {
@@ -10,9 +11,6 @@ export default class App extends React.Component {
     barWeight: 45,
   }
 
-  _showModal = () => this.setState({ isModalVisible: true })
-
-  _hideModal = () => this.setState({ isModalVisible: false })
   handleInput = (input) => { 
     this.setState({ input: input })
   }
@@ -43,31 +41,8 @@ export default class App extends React.Component {
             />
           </View>
 
-          <View style={styles.footer}>
-            <TouchableOpacity onPress={this._showModal}>
-              <Image
-                style={styles.icon}
-                source={require('./settings-cog.png')}
-              />
-            </TouchableOpacity>
-          </View>
+          <Settings/>
         </View>
-        <Modal 
-          visible={this.state.isModalVisible} 
-          onRequestClose={this._hideModal} 
-          style={styles.modal}
-          animationType='slide'
-        >
-          <View style={styles.modal}>
-            <Text>Hello</Text>
-            <Button
-              onPress={this._hideModal}
-              title="Close Modal"
-              color="#841584"
-              accessibilityLabel="Learn more about this purple button"
-            />
-          </View>
-        </Modal>
       </ScrollView>
     )
   }
