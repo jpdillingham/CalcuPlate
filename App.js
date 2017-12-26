@@ -1,12 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Modal, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, ScrollView, View, Modal, Button, TextInput, Image } from 'react-native';
 
 import Plate from './Plate'
 
 export default class App extends React.Component {
   state = {
     isModalVisible: false,
-    input: ''
+    input: '',
+    barWeight: 45,
   }
 
   _showModal = () => this.setState({ isModalVisible: true })
@@ -18,26 +19,39 @@ export default class App extends React.Component {
 
   render () {
     return (
-      <View style={styles.container}>
-        <Plate weight="1.25"/>
-        <Plate weight="2.5"/>
-        <Plate weight="5"/>
-        <Plate weight="10"/>
-        <Plate weight="25"/>
-        <Plate weight="35"/>
-        <Plate weight="45"/>
-        <Plate weight="55"/>
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.contentContainer}>
+          <View style={styles.plates}>
+            <Plate weight="1.25"/>
+            <Plate weight="2.5"/>
+            <Plate weight="5"/>
+            <Plate weight="10"/>
+            <Plate weight="25"/>
+            <Plate weight="35"/>
+            <Plate weight="45"/>
+            <Plate weight="55"/>
+          </View>
 
-        <TextInput style = {styles.input}
-               keyboardType = "numeric"
-               underlineColorAndroid = "transparent"
-               placeholder = "Desired Weight"
-               placeholderTextColor = "#9a73ef"
-               autoCapitalize = "none"
-               onChangeText = {this.handleInput}/>
-        <TouchableOpacity onPress={this._showModal}>
-          <Text>Show Modal</Text>
-        </TouchableOpacity>
+          <View style={styles.input}>
+            <TextInput style = {styles.textInput}
+                  keyboardType = "numeric"
+                  underlineColorAndroid = "transparent"
+                  placeholder = {this.state.barWeight.toString()}
+                  placeholderTextColor = "#9a73ef"
+                  autoCapitalize = "none"
+                  onChangeText = {this.handleInput}
+            />
+          </View>
+
+          <View style={styles.footer}>
+            <TouchableOpacity onPress={this._showModal}>
+              <Image
+                style={styles.icon}
+                source={require('./settings-cog.png')}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
         <Modal 
           visible={this.state.isModalVisible} 
           onRequestClose={this._hideModal} 
@@ -54,7 +68,7 @@ export default class App extends React.Component {
             />
           </View>
         </Modal>
-      </View>
+      </ScrollView>
     )
   }
 }
@@ -62,12 +76,37 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     top: 40,
-    flex: 1,
     backgroundColor: '#ffffff',
     alignItems: 'center',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between'
+  },
+  contentContainer: {
+    flex: 1
+  },
+  plates: {
+    alignItems: 'center'
   },
   input: {
-    width: 300,
+    width: 400,
+    flex: 1,
+    flexDirection: 'row'
+  },
+  textInput: {
+    fontSize: 24,
+    width: 500,
+    alignSelf: 'center'
+  },
+  icon: {
+    width: 36,
+    height: 36
+  },
+  footer: {
+    position: 'absolute',
+    width: 400,
+    bottom: 48,
+    alignItems: 'center'
   },
   modal: {
     backgroundColor: '#808080',
