@@ -16,7 +16,7 @@ class Settings extends Component {
                     <TouchableOpacity onPress={this._showModal}>
                         <Image
                             style={styles.icon}
-                            source={require('../../img/settings-cog.png')}
+                            source={require('./img/settings-cog.png')}
                         />
                     </TouchableOpacity>
                 </View>

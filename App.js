@@ -70,23 +70,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     fontSize: 24,
-    width: 500,
-    alignSelf: 'center'
-  },
-  icon: {
-    width: 36,
-    height: 36
-  },
-  footer: {
-    position: 'absolute',
     width: 400,
-    bottom: 48,
-    alignItems: 'center'
-  },
-  modal: {
-    backgroundColor: '#808080',
-    margin: 15, 
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignSelf: 'center'
   }
 });
