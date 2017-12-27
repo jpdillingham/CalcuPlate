@@ -7,8 +7,18 @@ import Settings from './components/Settings'
 export default class App extends React.Component {
   state = {
     isModalVisible: false,
-    barWeight: 45,
+    bar: 45,
     desiredWeight: 45,
+    plates: [
+      { key: 1.25, count: 1 },
+      { key: 2.5, count: 1 },
+      { key: 5, count: 2 },
+      { key: 10, count: 2 },
+      { key: 25, count: 1 },
+      { key: 35, count: 1 },
+      { key: 45, count: 1 },
+      { key: 55, count: 0 },
+    ]
   }
 
   handleInput = (input) => { 
@@ -19,17 +29,21 @@ export default class App extends React.Component {
     return (
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.contentContainer}>
-          <PlateDisplay weight={this.state.desiredWeight}/>
+          <PlateDisplay 
+            bar={this.state.bar}
+            plates={this.state.plates} 
+            weight={this.state.desiredWeight}
+          />
 
           <View style={styles.input}>
             <TextInput 
-                  style = {styles.textInput}
-                  keyboardType = "numeric"
-                  underlineColorAndroid = "transparent"
-                  placeholder = {this.state.desiredWeight.toString()}
-                  placeholderTextColor = "#9a73ef"
-                  autoCapitalize = "none"
-                  onChangeText = {this.handleInput}
+              style = {styles.textInput}
+              keyboardType = "numeric"
+              underlineColorAndroid = "transparent"
+              placeholder = {this.state.desiredWeight.toString()}
+              placeholderTextColor = "#9a73ef"
+              autoCapitalize = "none"
+              onChangeText = {this.handleInput}
             />
           </View>
 

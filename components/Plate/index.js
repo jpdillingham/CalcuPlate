@@ -13,12 +13,12 @@ class Plate extends Component {
 
     render () {
         return (
-            <View style={{width: this.getWidth(this.props.weight), padding: 1 }}>
+            <View style={{width: this.getWidth(this.props.weight.toString()), padding: 1 }}>
                 <Button
                     onPress={this.noop}
-                    title={this.props.weight}
+                    title={this.props.weight.toString()}
                     color="#505050"
-                    accessibilityLabel={this.props.weight}
+                    accessibilityLabel={this.props.weight.toString()}
                 />
             </View>
         )
