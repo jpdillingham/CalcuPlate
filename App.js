@@ -1,40 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, ScrollView, View, Modal, Button, TextInput, Image } from 'react-native';
 
-import Plate from './components/Plate'
+import PlateDisplay from './components/PlateDisplay'
 import Settings from './components/Settings'
 
 export default class App extends React.Component {
   state = {
     isModalVisible: false,
-    input: '',
     barWeight: 45,
+    desiredWeight: 45,
   }
 
   handleInput = (input) => { 
-    this.setState({ input: input })
+    this.setState({ desiredWeight: input })
   }
 
   render () {
     return (
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.contentContainer}>
-          <View style={styles.plates}>
-            <Plate weight="1.25"/>
-            <Plate weight="2.5"/>
-            <Plate weight="5"/>
-            <Plate weight="10"/>
-            <Plate weight="25"/>
-            <Plate weight="35"/>
-            <Plate weight="45"/>
-            <Plate weight="55"/>
-          </View>
+          <PlateDisplay weight={this.state.desiredWeight}/>
 
           <View style={styles.input}>
-            <TextInput style = {styles.textInput}
+            <TextInput 
+                  style = {styles.textInput}
                   keyboardType = "numeric"
                   underlineColorAndroid = "transparent"
-                  placeholder = {this.state.barWeight.toString()}
+                  placeholder = {this.state.desiredWeight.toString()}
                   placeholderTextColor = "#9a73ef"
                   autoCapitalize = "none"
                   onChangeText = {this.handleInput}
@@ -53,17 +45,13 @@ const styles = StyleSheet.create({
     top: 40,
     backgroundColor: '#ffffff',
     alignItems: 'center',
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between'
+    justifyContent: 'center'
   },
   contentContainer: {
     flex: 1
   },
-  plates: {
-    alignItems: 'center'
-  },
   input: {
+    marginTop: 10,
     width: 400,
     flex: 1,
     flexDirection: 'row'
@@ -71,6 +59,7 @@ const styles = StyleSheet.create({
   textInput: {
     fontSize: 24,
     width: 400,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    textAlign: 'center'
   }
 });

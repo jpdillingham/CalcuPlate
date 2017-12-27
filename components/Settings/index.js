@@ -49,10 +49,9 @@ const styles = StyleSheet.create({
         height: 36
     },
     footer: {
-        position: 'absolute',
         width: 400,
-        bottom: 48,
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 20
     },
     modal: {
         backgroundColor: '#808080',
