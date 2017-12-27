@@ -11,15 +11,10 @@ class PlateDisplay extends Component {
         plates = this.sortDesc(this.removeZeros(plates));
     
         let stack = [];
-
-        /*if (target <= bar) {
-            return stack;
-        }*/
-        
+      
         target -= bar;
         target /= 2;
 
-        // loop until we've either made our target or run out of plates
         while (true) {
             let plate = plates[0];
             
@@ -78,10 +73,37 @@ class PlateDisplay extends Component {
         return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
     }
 
+    getSum = (stack) => {
+        if (stack.length > 0) {
+            return stack.map(p => p.key).reduce((t,n) => t + n);
+        }
+        return 0;
+    }
+
+    getRemainder = (stack) => {
+        let sum = 0;
+        let remainder = 0;
+
+        if (stack.length > 0) {
+            sum = stack.map(p => p.key).reduce((t,n) => t + n);
+        }
+
+        remainder = this.props.weight - this.props.bar - (sum * 2);
+
+        if (remainder > 0) {
+            return 'Remainder: ' + remainder;
+        }
+
+        return '';
+    }
+
     render () {
+        let plates = this.getPlates();
+
         return (
             <View style={styles.plates}>
-                {this.sortAsc(this.getPlates()).map(p => <Plate key={this.getGuid()} weight={p.key}/>)}
+                <Text>{this.getRemainder(plates)}</Text>
+                {this.sortAsc(plates).map(p => <Plate key={this.getGuid()} weight={p.key}/>)}
                 
                 <Button
                     onPress={this.noop}
