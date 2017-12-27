@@ -26,15 +26,16 @@ class Settings extends Component {
                   style={styles.modal}
                   animationType='slide'
                 >
-                  <View style={styles.modal}>
-                    <Text>Hello</Text>
-                    <Button
-                      onPress={this._hideModal}
-                      title="Close Modal"
-                      color="#841584"
-                      accessibilityLabel="Learn more about this purple button"
-                    />
-                  </View>
+                    <View style={styles.modal}>
+                        <Text>This is where settings for bar weight and plate counts will go!</Text>
+                        <Button
+                            style={styles.closeButton}
+                            onPress={this._hideModal}
+                            title="Close Modal"
+                            color="#841584"
+                            accessibilityLabel="Learn more about this purple button"
+                        />
+                    </View>
                 </Modal>
             </View>
         )
@@ -54,10 +55,11 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
     modal: {
-        backgroundColor: '#808080',
-        margin: 15, 
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    closeButton: {
+        marginTop: 20,
     }
 });
   
