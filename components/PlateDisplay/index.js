@@ -81,17 +81,17 @@ class PlateDisplay extends Component {
     }
 
     getRemainder = (stack) => {
-        let sum = 0;
+        let sum = this.props.bar;
         let remainder = 0;
 
         if (stack.length > 0) {
-            sum = stack.map(p => p.key).reduce((t,n) => t + n);
+            sum += stack.map(p => p.key).reduce((t,n) => t + n) * 2;
         }
 
-        remainder = this.props.weight - this.props.bar - (sum * 2);
+        remainder = this.props.weight - sum;
 
         if (remainder > 0) {
-            return 'Remainder: ' + remainder;
+            return 'Actual: ' + sum + ', Remainder: ' + remainder;
         }
 
         return '';
@@ -104,15 +104,11 @@ class PlateDisplay extends Component {
             <View style={styles.plates}>
                 <Text>{this.getRemainder(plates)}</Text>
                 <View style={styles.post}/>
+
                 {this.sortAsc(plates).map(p => <Plate key={this.getGuid()} weight={p.key}/>)}
                 
                 <View style={styles.collar}>
-                    <Button
-                        onPress={this.noop}
-                        title={this.props.bar.toString()}
-                        color="#808080"
-                        accessibilityLabel={this.props.bar.toString()}
-                    />
+                    <Text style={styles.collarText}>{this.props.bar.toString()}</Text>
                 </View>
                 <View style={styles.bar}/>
             </View>
@@ -128,17 +124,26 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     collar: {
-        width: 75
+        width: 75,
+        height: 20,
+        backgroundColor: '#808080',
+        alignItems: 'center',
+        zIndex: 10,
+    },
+    collarText: {
+        color: '#FFFFFF',
+        fontWeight: 'bold'
     },
     post: {
-        width: 30,
-        height: 20,
+        width: 25,
+        height: 30,
+        bottom: -5,
         backgroundColor: '#C0C0C0'
     },
     bar: {
         top: -5,
-        width: 30,
-        height: 20,
+        width: 25,
+        height: 30,
         backgroundColor: '#C0C0C0',
     }
 });

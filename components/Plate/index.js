@@ -13,15 +13,31 @@ class Plate extends Component {
 
     render () {
         return (
-            <View style={{width: this.getWidth(this.props.weight.toString()), padding: 1 }}>
-                <Button
+            <View style={this.style.view}>
+                <Text style={this.style.text}>{this.props.weight.toString()}</Text>
+                {/*<Button
                     onPress={this.noop}
                     title={this.props.weight.toString()}
                     color="#505050"
                     accessibilityLabel={this.props.weight.toString()}
-                />
+                />*/}
             </View>
         )
+    }
+
+    style = {
+        view: {
+            width: this.getWidth(this.props.weight.toString()),
+            padding: 2,
+            marginBottom: 1,
+            backgroundColor: '#505050',
+            alignItems: 'center',
+        },
+        text: {
+            color: '#FFFFFF',
+            fontWeight: 'bold',
+        }
+
     }
 }
 

@@ -4,12 +4,11 @@ import { StyleSheet, Text, TouchableOpacity, View, Modal, Button, TextInput } fr
 class Title extends Component {
     render () {
         return (
-            <View>
+            <View style={styles.container}>
                 <Text style={styles.title}>
                     Calcu
                     <Text style={styles.titleAccent}>Plate</Text>
                 </Text>
-                <Text>Enter the desired weight.</Text>
             </View>
         )
     }
@@ -18,6 +17,11 @@ class Title extends Component {
 export default Title
 
 const styles = StyleSheet.create({
+    container: {
+      top: 40,
+      alignItems: 'center',
+      height: 100
+    },
     title: {
       fontWeight: 'bold', 
       fontSize: 36

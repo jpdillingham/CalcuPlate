@@ -29,8 +29,8 @@ export default class App extends React.Component {
   render () {
     return (
       <View style={styles.container}>
-        <Title/>
         <View style={styles.contentContainer}>
+          <Title/>
           <PlateDisplay 
             bar={this.state.bar}
             plates={this.state.plates} 
@@ -42,8 +42,8 @@ export default class App extends React.Component {
               style = {styles.textInput}
               keyboardType = "numeric"
               underlineColorAndroid = "transparent"
-              placeholder = {this.state.desiredWeight.toString()}
-              placeholderTextColor = "#9a73ef"
+              placeholder = 'Enter Desired Weight'
+              placeholderTextColor = "#808080"
               autoCapitalize = "none"
               onChangeText = {this.handleInput}
             />
@@ -57,31 +57,24 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  title: {
-    fontWeight: 'bold', 
-    fontSize: 36
-  },
-  titleAccent: {
-    fontStyle: 'italic'
-  },
   container: {
     backgroundColor: '#ffffff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     flex: 1
   },
   contentContainer: {
+    flex: 1,
+    alignItems: 'center'
   },
   input: {
-    marginTop: 10,
-    width: 400,
-    height: 40,
-    flexDirection: 'row',
+    marginTop: 20,
+    width: 300,
     backgroundColor: '#F2F2F2'
   },
   textInput: {
-    fontSize: 24,
-    width: 400,
+    fontSize: 20,
+    width: 300,
     alignSelf: 'center',
     textAlign: 'center'
   }
