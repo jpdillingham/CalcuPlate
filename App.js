@@ -25,23 +25,34 @@ export default class App extends React.Component {
 
 	handleInput = (input) => { 
 		this.setState({ desiredWeight: input })
-	}
+    }
+    
+    handleBarUpdate = (weight) => {
+        this.setState({ bar: weight })
+    }
+
+    handlePlateUpdate = (plates) => {
+        this.setState({ plates: plates })
+    }
 
 	render () {
 		return (
 			<View style={styles.container}>
 				<View style={styles.contentContainer}>
 					<Title/>
-
 					<PlateDisplay 
 						bar={this.state.bar}
 						plates={this.state.plates} 
 						weight={this.state.desiredWeight}
 					/>
-
 					<Input handleInput={this.handleInput}/>
 				</View>
-				<Settings/>
+                <Settings 
+                    plates={this.state.plates} 
+                    handlePlateUpdate={this.handlePlateUpdate} 
+                    bar={this.state.bar} 
+                    handleBarUpdate={this.handleBarUpdate}
+                />
 			</View>
 		)
 	}
