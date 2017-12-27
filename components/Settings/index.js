@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
     },
     footer: {
         width: 400,
-        alignItems: 'center'
+        alignItems: 'center',
+        bottom: 5
     },
     modal: {
         alignItems: 'center',
