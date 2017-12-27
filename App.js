@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, ScrollView, View, Modal, Button, TextInput, Image } from 'react-native';
 
+import Title from './components/Title'
 import PlateDisplay from './components/PlateDisplay'
 import Settings from './components/Settings'
 
@@ -28,6 +29,7 @@ export default class App extends React.Component {
   render () {
     return (
       <ScrollView contentContainerStyle={styles.container}>
+        <Title/>
         <View style={styles.contentContainer}>
           <PlateDisplay 
             bar={this.state.bar}
@@ -55,6 +57,13 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  title: {
+    fontWeight: 'bold', 
+    fontSize: 36
+  },
+  titleAccent: {
+    fontStyle: 'italic'
+  },
   container: {
     top: 40,
     backgroundColor: '#ffffff',

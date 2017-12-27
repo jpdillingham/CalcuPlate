@@ -120,6 +120,7 @@ export default PlateDisplay
 
 const styles = StyleSheet.create({
     plates: {
+        marginTop: 5,
         alignItems: 'center',
     }
 });
