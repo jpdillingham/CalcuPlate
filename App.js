@@ -28,7 +28,7 @@ export default class App extends React.Component {
 
   render () {
     return (
-      <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.container}>
         <Title/>
         <View style={styles.contentContainer}>
           <PlateDisplay 
@@ -49,9 +49,9 @@ export default class App extends React.Component {
             />
           </View>
 
-          <Settings/>
         </View>
-      </ScrollView>
+        <Settings/>
+      </View>
     )
   }
 }
@@ -65,19 +65,19 @@ const styles = StyleSheet.create({
     fontStyle: 'italic'
   },
   container: {
-    top: 40,
     backgroundColor: '#ffffff',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    flex: 1
   },
   contentContainer: {
-    flex: 1
   },
   input: {
     marginTop: 10,
     width: 400,
-    flex: 1,
-    flexDirection: 'row'
+    height: 40,
+    flexDirection: 'row',
+    backgroundColor: '#F2F2F2'
   },
   textInput: {
     fontSize: 24,

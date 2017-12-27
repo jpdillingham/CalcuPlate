@@ -103,14 +103,18 @@ class PlateDisplay extends Component {
         return (
             <View style={styles.plates}>
                 <Text>{this.getRemainder(plates)}</Text>
+                <View style={styles.post}/>
                 {this.sortAsc(plates).map(p => <Plate key={this.getGuid()} weight={p.key}/>)}
                 
-                <Button
-                    onPress={this.noop}
-                    title={this.props.bar.toString()}
-                    color="#808080"
-                    accessibilityLabel={this.props.bar.toString()}
-                />
+                <View style={styles.collar}>
+                    <Button
+                        onPress={this.noop}
+                        title={this.props.bar.toString()}
+                        color="#808080"
+                        accessibilityLabel={this.props.bar.toString()}
+                    />
+                </View>
+                <View style={styles.bar}/>
             </View>
         )
     }
@@ -122,6 +126,20 @@ const styles = StyleSheet.create({
     plates: {
         marginTop: 5,
         alignItems: 'center',
+    },
+    collar: {
+        width: 75
+    },
+    post: {
+        width: 30,
+        height: 20,
+        backgroundColor: '#C0C0C0'
+    },
+    bar: {
+        top: -5,
+        width: 30,
+        height: 20,
+        backgroundColor: '#C0C0C0',
     }
 });
   

@@ -11,8 +11,8 @@ class Settings extends Component {
 
     render () {
         return (
-            <View>
-                <View style={styles.footer}>
+            <View style={styles.footer}>
+                <View>
                     <TouchableOpacity onPress={this._showModal}>
                         <Image
                             style={styles.icon}
@@ -51,8 +51,7 @@ const styles = StyleSheet.create({
     },
     footer: {
         width: 400,
-        alignItems: 'center',
-        marginTop: 20
+        alignItems: 'center'
     },
     modal: {
         alignItems: 'center',
