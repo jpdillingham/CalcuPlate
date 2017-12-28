@@ -1,13 +1,12 @@
 import React, { Component} from 'react';
-import { StyleSheet, Image, Text, TouchableOpacity, View, Modal, Button, TextInput, Slider } from 'react-native';
+import { StyleSheet, Image, Text, TouchableOpacity, View, Modal } from 'react-native';
 
 import BarPicker from './BarPicker'
 import PlateSlider from './PlateSlider'
 
 class Settings extends Component {
     state = {
-        isModalVisible: false,
-        value: this.props.plates[0].count
+        isModalVisible: false
     }
     
     showModal = () => { 

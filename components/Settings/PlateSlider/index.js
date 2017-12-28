@@ -5,7 +5,7 @@ class PlateSlider extends Component {
     render () {
         return (
             <View>
-                <View style={styles.titleContainer}>
+                <View style={styles.container}>
                     <Text style={styles.caption}>{this.props.weight}</Text>
                     <Text style={styles.value}>{this.props.count}</Text>
                 </View>
@@ -24,7 +24,7 @@ class PlateSlider extends Component {
 export default PlateSlider
 
 const styles = StyleSheet.create({
-    titleContainer: {
+    container: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
