@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Modal, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import Plate from '../Plate'
 
