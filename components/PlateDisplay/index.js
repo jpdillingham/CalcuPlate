@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import Plate from '../Plate'
+import Plate from './Plate'
 
 class PlateDisplay extends Component {
     getPlates = () => {
