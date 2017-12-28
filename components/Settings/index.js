@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
-import { StyleSheet, Image, Text, TouchableOpacity, View, Modal } from 'react-native';
+import { StyleSheet, Text, View, Modal } from 'react-native';
 
+import Icon from './Icon'
 import BarPicker from './BarPicker'
 import PlateSlider from './PlateSlider'
 
@@ -20,14 +21,7 @@ class Settings extends Component {
     render () {
         return (
             <View style={styles.footer}>
-                <View>
-                    <TouchableOpacity onPress={this.showModal}>
-                        <Image
-                            style={styles.icon}
-                            source={require('./img/settings-cog.png')}
-                        />
-                    </TouchableOpacity>
-                </View>
+                <Icon toggle={this.showModal} />
                 <Modal 
                     visible={this.state.isModalVisible} 
                     onRequestClose={this.hideModal} 
@@ -59,10 +53,6 @@ class Settings extends Component {
 export default Settings
 
 const styles = StyleSheet.create({
-    icon: {
-        width: 36,
-        height: 36
-    },
     footer: {
         width: 400,
         alignItems: 'center',
@@ -76,9 +66,6 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         fontSize: 24,
         fontWeight: 'bold'
-    },
-    closeButton: {
-        marginTop: 20,
     },
 });
   
