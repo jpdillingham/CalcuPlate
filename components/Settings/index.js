@@ -37,7 +37,7 @@ class Settings extends Component {
                             handleBarUpdate={this.props.handleBarUpdate}
                         />
 
-                        <Text style={styles.heading}>Plate Counts</Text>
+                        <Text style={styles.heading}>Plate Counts (Pairs)</Text>
                         {this.props.plates.map(p => 
                             <PlateSlider 
                                 key={p.key} 
