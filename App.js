@@ -9,6 +9,7 @@ import Settings from './components/Settings'
 export default class App extends React.Component {
 	state = {
 		bar: 45,
+		bars: [ 40, 45, 50, 55 ],
 		plates: [
             { key: 1.25, count: 1 },
 			{ key: 2.5, count: 1 },
@@ -57,7 +58,8 @@ export default class App extends React.Component {
 				</View>
                 <Settings 
                     plates={this.state.plates} 
-                    handlePlateUpdate={this.handlePlateUpdate} 
+					handlePlateUpdate={this.handlePlateUpdate} 
+					bars={this.state.bars}
                     bar={this.state.bar} 
                     handleBarUpdate={this.handleBarUpdate}
                 />

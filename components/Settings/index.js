@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import { StyleSheet, Image, Text, TouchableOpacity, View, Modal, Button, TextInput, Slider } from 'react-native';
 
+import BarPicker from './BarPicker'
 import PlateSlider from './PlateSlider'
 
 class Settings extends Component {
@@ -34,6 +35,14 @@ class Settings extends Component {
                     style={styles.modal}
                     animationType='slide'
                 >
+                    <Text style={styles.heading}>Bar Weight</Text>
+                    <BarPicker 
+                        bars={this.props.bars} 
+                        bar={this.props.bar}
+                        handleBarUpdate={this.props.handleBarUpdate}
+                    />
+
+                    <Text style={styles.heading}>Plate Counts</Text>
                     {this.props.plates.map(p => 
                         <PlateSlider 
                             key={p.key} 
@@ -64,31 +73,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    heading: {
+        alignSelf: 'center',
+        fontSize: 24,
+        fontWeight: 'bold'
+    },
     closeButton: {
         marginTop: 20,
     },
-    instructions: {
-        fontSize: 18
-    },
-    instructionEmphasis: {
-        fontStyle: 'italic'
-    },
-      titleContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: 400,
-      },
-      caption: {
-        fontSize: 24,
-        flex: 1,
-        marginLeft: 10,
-      },
-      value: {
-        fontSize: 24,
-        flex: 1,
-        textAlign: 'right',
-        marginLeft: 10,
-      }
 });
   
