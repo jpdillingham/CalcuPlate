@@ -1,19 +1,29 @@
 import React, { Component} from 'react';
-import { StyleSheet, Image, Text, TouchableOpacity, View, Modal, Button, TextInput } from 'react-native';
+import { StyleSheet, Image, Text, TouchableOpacity, View, Modal, Button, TextInput, Slider } from 'react-native';
 
 class Settings extends Component {
     state = {
-        isModalVisible: false
+        isModalVisible: false,
+        value: this.props.plates[0].count
     }
     
-    _showModal = () => this.setState({ isModalVisible: true })
-    _hideModal = () => this.setState({ isModalVisible: false })
+    showModal = () => { 
+        this.setState({ isModalVisible: true })
+    }
+
+    hideModal = () => { 
+        this.setState({ isModalVisible: false })
+    }
+
+    handleValueChange = (value) => {
+        this.setState({ value: value})
+    }
 
     render () {
         return (
             <View style={styles.footer}>
                 <View>
-                    <TouchableOpacity onPress={this._showModal}>
+                    <TouchableOpacity onPress={this.showModal}>
                         <Image
                             style={styles.icon}
                             source={require('./img/settings-cog.png')}
@@ -22,20 +32,22 @@ class Settings extends Component {
                 </View>
                 <Modal 
                   visible={this.state.isModalVisible} 
-                  onRequestClose={this._hideModal} 
+                  onRequestClose={this.hideModal} 
                   style={styles.modal}
                   animationType='slide'
                 >
-                    <View style={styles.modal}>
-                        <Text>This is where settings for bar weight and plate counts will go!</Text>
-                        <Button
-                            style={styles.closeButton}
-                            onPress={this._hideModal}
-                            title="Close Modal"
-                            color="#841584"
-                            accessibilityLabel="Learn more about this purple button"
-                        />
+                    <Text style={styles.instructions}>Use the sliders to select the number of <Text style={styles.instructionEmphasis}>pairs</Text> of each plate size.</Text>
+                    <View style={styles.titleContainer}>
+                        <Text style={styles.caption}>{this.props.plates[0].key}</Text>
+                        <Text style={styles.value}>{this.state.value}</Text>
                     </View>
+                    <Slider 
+                        step={1}
+                        minimumValue={0}
+                        maximumValue={10}
+                        value={this.props.plates[0].count}
+                        onValueChange={(value) => this.handleValueChange(this.props.plates[0].key, value)}
+                    />
                 </Modal>
             </View>
         )
@@ -60,6 +72,29 @@ const styles = StyleSheet.create({
     },
     closeButton: {
         marginTop: 20,
-    }
+    },
+    instructions: {
+        fontSize: 18
+    },
+    instructionEmphasis: {
+        fontStyle: 'italic'
+    },
+      titleContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: 400,
+      },
+      caption: {
+        fontSize: 24,
+        flex: 1,
+        marginLeft: 10,
+      },
+      value: {
+        fontSize: 24,
+        flex: 1,
+        textAlign: 'right',
+        marginLeft: 10,
+      }
 });
   
