@@ -30,8 +30,17 @@ export default class App extends React.Component {
         this.setState({ bar: weight })
     }
 
-    handlePlateUpdate = (plates) => {
-        this.setState({ plates: plates })
+    handlePlateUpdate = (key, count) => {
+		let newPlates = JSON.parse(JSON.stringify(this.state.plates));
+
+		let foundPlate = newPlates.find(p => p.key == key);
+        
+        if (foundPlate) {
+			let foundIndex = newPlates.indexOf(foundPlate);
+			newPlates[foundIndex].count = count;
+
+			this.setState({ plates: newPlates })
+		}
     }
 
 	render () {

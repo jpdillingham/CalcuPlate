@@ -17,10 +17,6 @@ class Settings extends Component {
         this.setState({ isModalVisible: false })
     }
 
-    handleValueChange = (weight, value) => {
-        this.setState({ value: value})
-    }
-
     render () {
         return (
             <View style={styles.footer}>
@@ -43,7 +39,7 @@ class Settings extends Component {
                             key={p.key} 
                             weight={p.key} 
                             count={p.count} 
-                            handleValueChange={this.handleValueChange}
+                            handleValueChange={this.props.handlePlateUpdate}
                         />
                     )}
                 </Modal>
