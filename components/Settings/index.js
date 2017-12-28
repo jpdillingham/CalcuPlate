@@ -1,6 +1,8 @@
 import React, { Component} from 'react';
 import { StyleSheet, Image, Text, TouchableOpacity, View, Modal, Button, TextInput, Slider } from 'react-native';
 
+import PlateSlider from './PlateSlider'
+
 class Settings extends Component {
     state = {
         isModalVisible: false,
@@ -15,7 +17,7 @@ class Settings extends Component {
         this.setState({ isModalVisible: false })
     }
 
-    handleValueChange = (value) => {
+    handleValueChange = (weight, value) => {
         this.setState({ value: value})
     }
 
@@ -31,23 +33,19 @@ class Settings extends Component {
                     </TouchableOpacity>
                 </View>
                 <Modal 
-                  visible={this.state.isModalVisible} 
-                  onRequestClose={this.hideModal} 
-                  style={styles.modal}
-                  animationType='slide'
+                    visible={this.state.isModalVisible} 
+                    onRequestClose={this.hideModal} 
+                    style={styles.modal}
+                    animationType='slide'
                 >
-                    <Text style={styles.instructions}>Use the sliders to select the number of <Text style={styles.instructionEmphasis}>pairs</Text> of each plate size.</Text>
-                    <View style={styles.titleContainer}>
-                        <Text style={styles.caption}>{this.props.plates[0].key}</Text>
-                        <Text style={styles.value}>{this.state.value}</Text>
-                    </View>
-                    <Slider 
-                        step={1}
-                        minimumValue={0}
-                        maximumValue={10}
-                        value={this.props.plates[0].count}
-                        onValueChange={(value) => this.handleValueChange(this.props.plates[0].key, value)}
-                    />
+                    {this.props.plates.map(p => 
+                        <PlateSlider 
+                            key={p.key} 
+                            weight={p.key} 
+                            count={p.count} 
+                            handleValueChange={this.handleValueChange}
+                        />
+                    )}
                 </Modal>
             </View>
         )
