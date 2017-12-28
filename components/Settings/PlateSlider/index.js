@@ -32,13 +32,13 @@ const styles = StyleSheet.create({
     caption: {
         fontSize: 24,
         flex: 1,
-        marginLeft: 30,
+        marginLeft: 10,
     },
     value: {
         fontSize: 24,
         flex: 1,
         textAlign: 'right',
-        marginRight: 30,
+        marginRight: 10,
     }
 });
   

@@ -27,23 +27,26 @@ class Settings extends Component {
                     onRequestClose={this.hideModal} 
                     style={styles.modal}
                     animationType='slide'
+                    presentationStyle='fullScreen'
                 >
-                    <Text style={styles.heading}>Bar Weight</Text>
-                    <BarPicker 
-                        bars={this.props.bars} 
-                        bar={this.props.bar}
-                        handleBarUpdate={this.props.handleBarUpdate}
-                    />
-
-                    <Text style={styles.heading}>Plate Counts</Text>
-                    {this.props.plates.map(p => 
-                        <PlateSlider 
-                            key={p.key} 
-                            weight={p.key} 
-                            count={p.count} 
-                            handleValueChange={this.props.handlePlateUpdate}
+                    <View style={styles.wrapper}>
+                        <Text style={styles.heading}>Bar Weight</Text>
+                        <BarPicker 
+                            bars={this.props.bars} 
+                            bar={this.props.bar}
+                            handleBarUpdate={this.props.handleBarUpdate}
                         />
-                    )}
+
+                        <Text style={styles.heading}>Plate Counts</Text>
+                        {this.props.plates.map(p => 
+                            <PlateSlider 
+                                key={p.key} 
+                                weight={p.key} 
+                                count={p.count} 
+                                handleValueChange={this.props.handlePlateUpdate}
+                            />
+                        )}
+                    </View>
                 </Modal>
             </View>
         )
@@ -57,6 +60,9 @@ const styles = StyleSheet.create({
         width: 400,
         alignItems: 'center',
         bottom: 5
+    },
+    wrapper: {
+        margin: 20
     },
     modal: {
         alignItems: 'center',
