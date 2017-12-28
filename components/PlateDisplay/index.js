@@ -107,10 +107,10 @@ class PlateDisplay extends Component {
 
                 {this.sortAsc(plates).map(p => <Plate key={this.getGuid()} weight={p.key}/>)}
                 
-                <View style={styles.collar}>
-                    <Text style={styles.collarText}>{this.props.bar.toString()}</Text>
+                <View style={styles.sleeve}/>
+                <View style={styles.bar}>
+                    <Text style={styles.barText}>{this.props.bar.toString()}</Text>
                 </View>
-                <View style={styles.bar}/>
             </View>
         )
     }
@@ -123,16 +123,12 @@ const styles = StyleSheet.create({
         marginTop: 5,
         alignItems: 'center',
     },
-    collar: {
-        width: 75,
-        height: 20,
+    sleeve: {
+        width: 60,
+        height: 15,
         backgroundColor: '#808080',
         alignItems: 'center',
         zIndex: 10,
-    },
-    collarText: {
-        color: '#FFFFFF',
-        fontWeight: 'bold'
     },
     post: {
         width: 25,
@@ -145,6 +141,12 @@ const styles = StyleSheet.create({
         width: 25,
         height: 30,
         backgroundColor: '#C0C0C0',
-    }
+        alignItems: 'center',
+    },
+    barText: {
+        marginTop: 7,
+        color: '#000000',
+        fontWeight: 'bold'
+    },
 });
   
