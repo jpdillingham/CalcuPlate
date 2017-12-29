@@ -5,8 +5,6 @@ class Plate extends Component {
     sizes = [ '1.25', '2.5', '5', '10', '25', '35', '45', '55' ]
     widths = [ 50, 100, 150, 200, 250, 300, 350, 400 ]
 
-    noop = () => { }
-
     getWidth = (weight) => { 
         return this.widths[this.sizes.indexOf(weight)]
     }
@@ -15,12 +13,6 @@ class Plate extends Component {
         return (
             <View style={this.style.view}>
                 <Text style={this.style.text}>{this.props.weight.toString()}</Text>
-                {/*<Button
-                    onPress={this.noop}
-                    title={this.props.weight.toString()}
-                    color="#505050"
-                    accessibilityLabel={this.props.weight.toString()}
-                />*/}
             </View>
         )
     }

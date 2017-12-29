@@ -38,10 +38,10 @@ class PlateDisplay extends Component {
         
         if (foundPlate) {
             let foundIndex = stack.indexOf(foundPlate);
-		    stack[foundIndex].count -= 1;
+            stack[foundIndex].count -= 1;
         }
 
-	    return this.removeZeros(stack);
+        return this.removeZeros(stack);
     }
 
     removeZeros = (arr) => {
@@ -63,8 +63,6 @@ class PlateDisplay extends Component {
             return 0;
         })
     }
-
-    noop = () => {}
 
     getGuid = () => {
         var S4 = function() {
