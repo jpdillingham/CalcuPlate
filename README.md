@@ -1,6 +1,6 @@
 # Calcu*Plate*
 
-A simple mobile application for calculating barbell plate configurations, written in React Native.
+A React Native mobile application for calculating barbell plate configurations.
 
 ![calculator](doc/calculator.png)
 ![settings](doc/settings.png)
